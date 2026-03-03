@@ -1,3 +1,12 @@
+# Task 1: Mini Detail Library App
+### Open backend folder
+1. Run superbase_setup.sql in Supabase SQL Editor
+2. Create .env file:
+   DATABASE_URL="postgresql://postgres:PASSWORD@db.REF.supabase.co:5432/postgres"
+3. pip install -r requirements.txt
+4. uvicorn main:app --reload
+5. Open http://localhost:8000/docs
+
 # Task 2: RLS
 
 ## Setup Instructions
@@ -5,7 +14,7 @@
 ### Open task_2 folder
 1. Run setup_rls.sql in Supabase SQL Editor
 2. Create .env file:
-   DATABASE_URL=postgresql://postgres:PASSWORD@db.REF.supabase.co:5432/postgres
+   DATABASE_URL="postgresql://postgres:PASSWORD@db.REF.supabase.co:5432/postgres"
 3. pip install -r requirements.txt
 4. uvicorn main:app --reload
 5. Open http://localhost:8000/docs
