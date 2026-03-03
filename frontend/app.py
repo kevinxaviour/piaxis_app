@@ -1,44 +1,17 @@
 import streamlit as st
 import requests
 
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "https://piaxis-app.onrender.com/"
 
-# -----------------------------
-# PAGE CONFIG
-# -----------------------------
+
+# Page config
 st.set_page_config(
     page_title="Piaxis Detail Library",
     layout="wide"
 )
 
-# -----------------------------
-# CUSTOM STYLING
-# -----------------------------
-# st.markdown("""
-# <style>
-# .main {
-#     padding-top: 2rem;
-# }
-# .card {
-#     background-color: #f8f9fa;
-#     padding: 1.5rem;
-#     border-radius: 10px;
-#     box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
-#     margin-bottom: 1rem;
-# }
-# .title {
-#     font-size: 20px;
-#     font-weight: 600;
-# }
-# .description {
-#     color: #444;
-# }
-# </style>
-# """, unsafe_allow_html=True)
 
-# -----------------------------
-# SIDEBAR NAVIGATION
-# -----------------------------
+# SideBar Navigation
 st.sidebar.title("Piaxis Library")
 st.sidebar.markdown("---")
 
@@ -49,9 +22,9 @@ page = st.sidebar.radio(
 
 st.sidebar.markdown("---")
 
-# -----------------------------
-# SECTION 1: VIEW DETAILS
-# -----------------------------
+
+# View Details
+
 if page == "View Details":
 
     st.title("Architectural Details")
@@ -61,20 +34,12 @@ if page == "View Details":
 
         if response.status_code == 200:
             details = response.json()
-
-            for d in details:
-                st.markdown(f"""
-                <div class="card">
-                    <div class="title">{d['title']}</div>
-                    <div class="description">{d['description']}</div>
-                </div>
-                """, unsafe_allow_html=True)
+            st.table(details)
         else:
             st.error("Failed to fetch details.")
 
-# -----------------------------
-# SECTION 2: SEARCH DETAILS
-# -----------------------------
+
+# Search Details
 elif page == "Search Details":
 
     st.title("Search Detail Library")
@@ -98,21 +63,15 @@ elif page == "Search Details":
                 results = response.json()
 
                 if results:
-                    for r in results:
-                        st.markdown(f"""
-                        <div class="card">
-                            <div class="title">{r['title']}</div>
-                            <div class="description">{r['description']}</div>
-                        </div>
-                        """, unsafe_allow_html=True)
+                    st.table(results)
                 else:
                     st.info("No matching details found.")
             else:
                 st.error("Search failed.")
 
-# -----------------------------
-# SECTION 3: SUGGEST DETAIL
-# -----------------------------
+
+# Suggest Details
+
 elif page == "Suggest Detail":
 
     st.title("Smart Detail Suggestion")
@@ -156,16 +115,7 @@ elif page == "Suggest Detail":
             data = response.json()
 
             if "detail" in data:
-                st.success("Best Matching Detail Found")
-
-                st.markdown(f"""
-                <div class="card">
-                    <div class="title">{data['detail']['title']}</div>
-                    <div class="description">{data['detail']['description']}</div>
-                </div>
-                """, unsafe_allow_html=True)
-
-                st.info(data["explanation"])
+                st.write(data)
 
             else:
                 st.warning(data.get("message", "No match found."))
