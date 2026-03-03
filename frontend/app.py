@@ -1,7 +1,9 @@
 import streamlit as st
 import requests
+from dotenv import load_dotenv
+load_dotenv()
 
-BASE_URL = "https://piaxis-app.onrender.com/"
+BASE_URL = os.getenv("URL")
 
 
 # Page config
@@ -120,4 +122,5 @@ elif page == "Suggest Detail":
             else:
                 st.warning(data.get("message", "No match found."))
         else:
+
             st.error("Suggestion request failed.")
