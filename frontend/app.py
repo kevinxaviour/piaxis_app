@@ -3,25 +3,19 @@ import requests
 from dotenv import load_dotenv
 import os
 
-# ---------------------------
 # Load Environment Variables
-# ---------------------------
 load_dotenv()
 
 BASE_URL_1 = os.getenv("URL")     # Task 1 Backend
 BASE_URL_2 = os.getenv("URL2")    # Task 2 Backend
 
-# ---------------------------
 # Page Configuration
-# ---------------------------
 st.set_page_config(
     page_title="Piaxis Unified Library",
     layout="wide"
 )
 
-# ---------------------------
 # Sidebar Navigation
-# ---------------------------
 st.sidebar.title("Piaxis Unified Portal")
 st.sidebar.markdown("---")
 
@@ -32,9 +26,7 @@ main_page = st.sidebar.selectbox(
 
 st.sidebar.markdown("---")
 
-# =========================================================
-# ======================= TASK 1 ==========================
-# =========================================================
+# TASK 1
 
 if main_page == "Task 1 - Detail Library":
 
@@ -45,9 +37,7 @@ if main_page == "Task 1 - Detail Library":
         ["View Details", "Search Details", "Suggest Detail"]
     )
 
-    # ---------------------------
     # View Details
-    # ---------------------------
     if page == "View Details":
 
         st.title("Architectural Details")
@@ -67,9 +57,7 @@ if main_page == "Task 1 - Detail Library":
             except Exception as e:
                 st.error(f"Error connecting to backend: {e}")
 
-    # ---------------------------
     # Search Details
-    # ---------------------------
     elif page == "Search Details":
 
         st.title("Search Detail Library")
@@ -104,9 +92,7 @@ if main_page == "Task 1 - Detail Library":
                 except Exception as e:
                     st.error(f"Error connecting to backend: {e}")
 
-    # ---------------------------
     # Suggest Detail
-    # ---------------------------
     elif page == "Suggest Detail":
 
         st.title("Smart Detail Suggestion")
@@ -161,9 +147,7 @@ if main_page == "Task 1 - Detail Library":
             except Exception as e:
                 st.error(f"Error connecting to backend: {e}")
 
-# =========================================================
-# ======================= TASK 2 ==========================
-# =========================================================
+# TASK 2 
 
 elif main_page == "Task 2 - Secure Access":
 
@@ -174,9 +158,7 @@ elif main_page == "Task 2 - Secure Access":
         ["View Users", "Secure Details"]
     )
 
-    # ---------------------------
     # View Users
-    # ---------------------------
     if page == "View Users":
 
         st.title("Registered Users")
@@ -200,9 +182,7 @@ elif main_page == "Task 2 - Secure Access":
             except Exception as e:
                 st.error(f"Error connecting to backend: {e}")
 
-    # ---------------------------
     # Secure Details
-    # ---------------------------
     elif page == "Secure Details":
 
         st.title("Secure Architectural Details")
@@ -258,4 +238,5 @@ elif main_page == "Task 2 - Secure Access":
 
             except Exception as e:
                 st.error(f"Error connecting to backend: {e}")
+
 
