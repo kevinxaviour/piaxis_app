@@ -25,7 +25,7 @@ st.set_page_config(
 st.sidebar.title("Piaxis Unified Portal")
 st.sidebar.markdown("---")
 
-main_page = st.sidebar.radio(
+main_page = st.sidebar.selectbox(
     "Select Module",
     ["Task 1 - Detail Library", "Task 2 - Secure Access"]
 )
@@ -258,3 +258,4 @@ elif main_page == "Task 2 - Secure Access":
 
             except Exception as e:
                 st.error(f"Error connecting to backend: {e}")
+
