@@ -13,7 +13,7 @@
 # Live Demo
 - [Streamlit App](https://piaxisapp-ui.streamlit.app/)
 - [Task 1 API Docs](https://piaxis-app.onrender.com/docs)
-- [Task 1 API Docs](https://piaxis-t2.onrender.com/docs)
+- [Task 2 API Docs](https://piaxis-t2.onrender.com/docs)
 
 ---
 
