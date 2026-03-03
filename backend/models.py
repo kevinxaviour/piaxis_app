@@ -11,8 +11,6 @@ class Detail(Base):
     category = Column(Text)
     tags = Column(Text)
     description = Column(Text)
-    source = Column(Text)
-    user_id = Column(Integer)
 
 class DetailUsageRule(Base):
     __tablename__ = "detail_usage_rules"
