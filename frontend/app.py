@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 from dotenv import load_dotenv
+import os
 load_dotenv()
 
 BASE_URL = os.getenv("URL")
@@ -124,3 +125,4 @@ elif page == "Suggest Detail":
         else:
 
             st.error("Suggestion request failed.")
+
